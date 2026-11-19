@@ -1,0 +1,8 @@
+# Contexte de build de l'image frontend (./frontend) : uniquement les sources.
+node_modules
+dist
+coverage
+.env
+.env.*
+Dockerfile
+.dockerignore

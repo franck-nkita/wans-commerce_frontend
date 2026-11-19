@@ -1,0 +1,42 @@
+# Reverse proxy de production. APP_DOMAIN = nom de domaine public (ex. app.wanstech.cd) :
+# Caddy obtient et renouvelle automatiquement le certificat HTTPS et redirige HTTP vers HTTPS.
+{$APP_DOMAIN} {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "same-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		# Le hachage correspond au script de thème en ligne de index.html : à recalculer s'il est modifié (voir docs/SECURITY.md).
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-f4xInZI+xyCbon1TXa+c/tu07pqqAq52pLk7/l9I/Tc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+		-Server
+	}
+
+	# API et administration Django (la documentation Swagger n'est servie qu'aux opérateurs : API_DOCS_PUBLIC=false).
+	handle /api/* {
+		reverse_proxy backend:8000
+	}
+	handle /admin* {
+		# L'administration charge ses propres scripts : CSP de l'application non applicable.
+		header -Content-Security-Policy
+		reverse_proxy backend:8000
+	}
+	handle_path /static/* {
+		root * /srv/django-static
+		file_server
+	}
+
+	# Application monopage : toute autre route renvoie index.html.
+	handle {
+		root * /srv/app
+		try_files {path} /index.html
+		file_server
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}

@@ -1,0 +1,1 @@
+import{r as a}from"./index-CV5oYK8H.js";import{a as t,b as o}from"./ChartTooltip-3r7n4HTm.js";var p=["axis"],s=a.forwardRef((r,e)=>a.createElement(t,{chartName:"AreaChart",defaultTooltipEventType:"axis",validateTooltipEventTypes:p,tooltipPayloadSearcher:o,categoricalChartProps:r,ref:e}));export{s as A};

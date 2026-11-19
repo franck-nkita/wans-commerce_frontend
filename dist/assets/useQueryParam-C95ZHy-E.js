@@ -1,0 +1,1 @@
+import{b as m,r as n}from"./index-CV5oYK8H.js";function i(e,r=""){const[u,a]=m(),o=u.get(e)??r,c=n.useCallback(s=>{a(p=>{const t=new URLSearchParams(p);return s&&s!==r?t.set(e,s):t.delete(e),t},{replace:!0})},[e,r,a]);return[o,c]}export{i as u};

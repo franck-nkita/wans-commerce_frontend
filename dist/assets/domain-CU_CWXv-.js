@@ -1,0 +1,1 @@
+const e=["Espèces","Mobile Money","Carte bancaire","Virement bancaire","Autre"],t=["Rapport des ventes","Rapport des stocks","Rapport financier","Rapport des clients","Rapport des produits","Rapport des paiements"],s=["Aujourd'hui","Cette semaine","Ce mois","Ce trimestre","Cette année","Période personnalisée"],r=["PDF","Excel","CSV"];export{s as a,r as b,e as p,t as r};
