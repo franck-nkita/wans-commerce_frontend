@@ -1,5 +1,7 @@
 # WANS TECH — WANS COMMERCE
 
+## chemin local du dossier : E:\Work\gestion_decisionel_project\app getion stock\wans_commerce_project_production\frontend
+
 Plateforme SaaS de gestion commerciale pour les PME : catalogue, stocks, entrepôts, clients, ventes, paiements, rapports et tableau de bord, avec un espace isolé par entreprise cliente.
 
 Ce README est le manuel principal du projet. Les documents de `docs/` approfondissent chaque sujet :
