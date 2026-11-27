@@ -1,1 +1,0 @@
-import{j as n,C as a,B as r}from"./index-CV5oYK8H.js";function l({items:i}){return n.jsx("div",{className:`mini-kpi-grid mini-kpi-grid-${i.length}`,children:i.map(s=>n.jsxs(a,{className:"mini-kpi",children:[n.jsx("span",{children:s.label}),n.jsx("strong",{children:s.value}),n.jsx(r,{tone:s.tone??"success",children:s.note})]},s.label))})}export{l as M};
